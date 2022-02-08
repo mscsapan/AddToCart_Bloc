@@ -1,9 +1,14 @@
-import 'package:addtocart_bloc/bloc/cart_product_bloc.dart';
-import 'package:addtocart_bloc/model/product_model.dart';
+import 'package:addtocart_bloc/bloc/cart_product_event.dart';
+import 'package:addtocart_bloc/bloc/cart_product_state.dart';
+import 'package:addtocart_bloc/network/product_network.dart';
+import 'package:addtocart_bloc/screens/cart_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../bloc/cart_product_bloc.dart';
+import '../model/product_model.dart';
 
 class ProductScreen extends StatelessWidget {
   const ProductScreen({Key? key}) : super(key: key);
@@ -21,53 +26,74 @@ class ProductScreen extends StatelessWidget {
         leading: Stack(
           children: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const CartScreen(),
+                  ),
+                );
+              },
               icon: const Icon(Icons.shopping_cart,
                   color: Colors.black, size: 30.0),
             ),
             Positioned(
               right: 12.0,
               top: 6.0,
-              child: BlocBuilder<CartProductBloc, CartProductState>(
-                builder: (context, state) {
-                  return Container(
-                    height: 20.0,
-                    width: 20.0,
-                    alignment: Alignment.center,
-                    decoration: const BoxDecoration(
-                        shape: BoxShape.circle, color: Colors.red),
-                    child: Text(
-                      BlocProvider.of<CartProductBloc>(context)
-                          .addToCart
-                          .length
-                          .toString(),
+              child: Container(
+                height: 20.0,
+                width: 20.0,
+                alignment: Alignment.center,
+                decoration: const BoxDecoration(
+                    shape: BoxShape.circle, color: Colors.red),
+                child: BlocBuilder<CartProductBloc, CartProductState>(
+                    builder: (context, state) {
+                  if (state is LoadedCartProductState) {
+                    return Text(
+                      state.product.length.toString(),
                       style: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  );
-                },
+                    );
+                  }
+                  return const Text('0');
+                }),
               ),
-            )
+            ),
           ],
         ),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
-      body: BlocBuilder<CartProductBloc, CartProductState>(
-        builder: (context, state) {
+      /*body: BlocBuilder<CartProductBloc, CartProductState>(
+        builder: (context, CartProductState state) {
           if (state is LoadingCartProductState) {
             return loadingIndicator();
-          } else if (state is LoadedCartState) {
-            return Container(
-                margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                child: GridView.builder(
+          } else if (state is LoadedCartProductState) {
+            return getProduct(state.product);
+          } else if (state is ErrorCartProductState) {
+            return Center(child: Text(state.message));
+          }
+          return const Center(child: Text('Nothing...'));
+        },
+      ),*/
+      body: getProduct(),
+    );
+  }
+
+  Widget getProduct() {
+    return FutureBuilder<List<Product>>(
+        future: ProductNetwork().getProductNetwork(),
+        builder: (context, AsyncSnapshot<List<Product>> snapshot) {
+          return snapshot.hasData
+              ? Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                  child: GridView.builder(
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       childAspectRatio: 0.95,
                     ),
-                    itemCount: productList.length,
+                    itemCount: snapshot.data!.length,
                     itemBuilder: (BuildContext context, int index) {
-                      final Product product = productList[index];
+                      final Product pro = snapshot.data![index];
                       return Card(
                         elevation: 5.0,
                         child: Column(
@@ -77,7 +103,7 @@ class ProductScreen extends StatelessWidget {
                               height: 140.0,
                               width: 140.0,
                               child: Image.asset(
-                                product.image,
+                                pro.image,
                               ),
                             ),
                             Padding(
@@ -91,10 +117,10 @@ class ProductScreen extends StatelessWidget {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(product.name),
-                                      Text(product.price.toString() +
+                                      Text(pro.name),
+                                      Text(pro.price.toString() +
                                           '/' +
-                                          product.unit),
+                                          pro.unit),
                                     ],
                                   ),
                                   Container(
@@ -110,7 +136,7 @@ class ProductScreen extends StatelessWidget {
                                         BlocProvider.of<CartProductBloc>(
                                                 context)
                                             .add(AddToCartProductEvent(
-                                                product: productList[index]));
+                                                product: pro));
                                       },
                                       icon: const Icon(
                                         CupertinoIcons.shopping_cart,
@@ -125,14 +151,11 @@ class ProductScreen extends StatelessWidget {
                           ],
                         ),
                       );
-                    }));
-          } else if (state is ErrorCartProductState) {
-            return Center(child: Text(state.message));
-          }
-          return const Center(child: Text('Nothing Happend'));
-        },
-      ),
-    );
+                    },
+                  ),
+                )
+              : loadingIndicator();
+        });
   }
 
   Widget loadingIndicator() {

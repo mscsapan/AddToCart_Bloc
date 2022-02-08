@@ -1,29 +1,26 @@
-part of 'cart_product_bloc.dart';
+import 'package:addtocart_bloc/model/product_model.dart';
+import 'package:equatable/equatable.dart';
 
 abstract class CartProductState extends Equatable {
   const CartProductState();
-  
+
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [];
 }
 
-class CartProductInitial extends CartProductState {}
-class LoadingCartProductState extends CartProductState{}
-class CountCartProductState extends CartProductState{
-  final int count;
-  const CountCartProductState({required this.count});
-  @override
-  List<Object> get props => [count]; 
-}
-class LoadedCartState extends CartProductState{
+class LoadingCartProductState extends CartProductState {}
+
+class LoadedCartProductState extends CartProductState {
   final List<Product> product;
-  const LoadedCartState({required this.product});
+  const LoadedCartProductState({required this.product});
   @override
-  List<Object> get props => [product];
+  List<Object?> get props => [product];
 }
-class ErrorCartProductState extends CartProductState{
+
+class ErrorCartProductState extends CartProductState {
   final String message;
+
   const ErrorCartProductState({required this.message});
   @override
-  List<Object> get props => [message];
+  List<Object?> get props => [message];
 }

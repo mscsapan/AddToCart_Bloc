@@ -57,7 +57,7 @@ List<Product> productList = [
       quantity: 1,
       unit: 'Four'),
   Product(
-      id: 1,
+      id: 3,
       name: 'Red Beef',
       image: 'assets/product/3.png',
       initialPrice: 480,
@@ -65,7 +65,7 @@ List<Product> productList = [
       quantity: 1,
       unit: 'Kg'),
   Product(
-      id: 1,
+      id: 4,
       name: 'Cabbage',
       image: 'assets/product/4.png',
       initialPrice: 30,
@@ -73,7 +73,7 @@ List<Product> productList = [
       quantity: 1,
       unit: 'Kg'),
   Product(
-      id: 1,
+      id: 5,
       name: 'Chicken',
       image: 'assets/product/5.png',
       initialPrice: 160,
@@ -81,7 +81,7 @@ List<Product> productList = [
       quantity: 1,
       unit: 'Kg'),
   Product(
-      id: 1,
+      id: 6,
       name: 'Cauliflower',
       image: 'assets/product/6.png',
       initialPrice: 25,
@@ -89,7 +89,7 @@ List<Product> productList = [
       quantity: 1,
       unit: 'Bottle'),
   Product(
-      id: 1,
+      id: 7,
       name: 'Soft Drinks',
       image: 'assets/product/7.png',
       initialPrice: 25,
@@ -97,7 +97,7 @@ List<Product> productList = [
       quantity: 1,
       unit: 'Bottle'),
   Product(
-      id: 1,
+      id: 8,
       name: 'Fanta Drinks',
       image: 'assets/product/8.png',
       initialPrice: 20,
@@ -105,7 +105,7 @@ List<Product> productList = [
       quantity: 1,
       unit: 'Bottle'),
   Product(
-      id: 1,
+      id: 9,
       name: 'Clemon',
       image: 'assets/product/9.png',
       initialPrice: 15,
@@ -113,7 +113,7 @@ List<Product> productList = [
       quantity: 1,
       unit: 'Bottle'),
   Product(
-      id: 1,
+      id: 10,
       name: 'Egges',
       image: 'assets/product/10.png',
       initialPrice: 38,
@@ -121,7 +121,7 @@ List<Product> productList = [
       quantity: 1,
       unit: 'Four'),
   Product(
-      id: 1,
+      id: 11,
       name: 'Ginger',
       image: 'assets/product/11.png',
       initialPrice: 120,
@@ -129,7 +129,7 @@ List<Product> productList = [
       quantity: 1,
       unit: 'Kg'),
   Product(
-      id: 1,
+      id: 12,
       name: 'Red Grapes',
       image: 'assets/product/12.png',
       initialPrice: 280,
@@ -137,16 +137,23 @@ List<Product> productList = [
       quantity: 1,
       unit: 'Kg'),
   Product(
-      id: 1,
+      id: 13,
       name: 'Pomegranate',
       image: 'assets/product/13.png',
       initialPrice: 320,
       price: 320,
       quantity: 1,
       unit: 'Kg'),
-
   Product(
-      id: 1,
+      id: 14,
+      name: 'Wheat Flour',
+      image: 'assets/product/14.png',
+      initialPrice: 34,
+      price: 34,
+      quantity: 1,
+      unit: 'Kg'),
+  Product(
+      id: 15,
       name: 'Orange',
       image: 'assets/product/15.png',
       initialPrice: 150,
@@ -154,7 +161,7 @@ List<Product> productList = [
       quantity: 1,
       unit: 'Kg'),
   Product(
-      id: 1,
+      id: 16,
       name: 'Malta',
       image: 'assets/product/16.png',
       initialPrice: 70,
@@ -162,7 +169,7 @@ List<Product> productList = [
       quantity: 1,
       unit: 'Piece'),
   Product(
-      id: 1,
+      id: 17,
       name: 'Bean',
       image: 'assets/product/17.png',
       initialPrice: 50,
@@ -170,7 +177,7 @@ List<Product> productList = [
       quantity: 1,
       unit: 'Kg'),
   Product(
-      id: 1,
+      id: 18,
       name: 'Pineapple',
       image: 'assets/product/18.png',
       initialPrice: 70,
@@ -178,7 +185,7 @@ List<Product> productList = [
       quantity: 1,
       unit: 'Kg'),
   Product(
-      id: 1,
+      id: 19,
       name: 'Pineapple',
       image: 'assets/product/19.png',
       initialPrice: 70,
@@ -186,7 +193,7 @@ List<Product> productList = [
       quantity: 1,
       unit: 'Kg'),
   Product(
-      id: 1,
+      id: 20,
       name: 'Caret',
       image: 'assets/product/20.png',
       initialPrice: 25,
@@ -194,7 +201,7 @@ List<Product> productList = [
       quantity: 1,
       unit: 'Kg'),
   Product(
-      id: 1,
+      id: 21,
       name: 'Ladies Finger',
       image: 'assets/product/21.png',
       initialPrice: 14,
@@ -202,7 +209,7 @@ List<Product> productList = [
       quantity: 1,
       unit: 'Kg'),
   Product(
-      id: 1,
+      id: 22,
       name: 'Potato',
       image: 'assets/product/22.png',
       initialPrice: 30,
@@ -210,7 +217,7 @@ List<Product> productList = [
       quantity: 1,
       unit: 'Kg'),
   Product(
-      id: 1,
+      id: 23,
       name: 'Cucumber',
       image: 'assets/product/23.png',
       initialPrice: 30,
@@ -218,7 +225,7 @@ List<Product> productList = [
       quantity: 1,
       unit: 'Kg'),
   Product(
-      id: 1,
+      id: 24,
       name: 'Strawberry',
       image: 'assets/product/24.png',
       initialPrice: 160,
@@ -226,7 +233,7 @@ List<Product> productList = [
       quantity: 1,
       unit: 'Kg'),
   Product(
-      id: 1,
+      id: 25,
       name: 'Tomato',
       image: 'assets/product/25.png',
       initialPrice: 34,
@@ -234,7 +241,7 @@ List<Product> productList = [
       quantity: 1,
       unit: 'Kg'),
   Product(
-      id: 1,
+      id: 26,
       name: 'Tomato',
       image: 'assets/product/26.png',
       initialPrice: 30,
