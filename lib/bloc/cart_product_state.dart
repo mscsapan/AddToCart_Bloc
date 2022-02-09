@@ -1,4 +1,4 @@
-import 'package:addtocart_bloc/model/product_model.dart';
+import '../model/product_model.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class CartProductState extends Equatable {

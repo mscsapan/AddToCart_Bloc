@@ -1,20 +1,20 @@
 class Product {
-  final int id;
-  final String name;
-  final String image;
-  final int price;
-  final int initialPrice;
-  final String unit;
-  final int quantity;
+  final int? id;
+  final String? name;
+  final String? image;
+  final int? price;
+  final int? initialPrice;
+  final String? unit;
+  final int? quantity;
 
   Product({
-    required this.id,
-    required this.name,
-    required this.image,
-    required this.initialPrice,
-    required this.price,
-    required this.unit,
-    required this.quantity,
+    this.id,
+    this.name,
+    this.image,
+    this.initialPrice,
+    this.price,
+    this.unit,
+    this.quantity,
   });
 
   Product.fromProduct(Map<String, dynamic> product)

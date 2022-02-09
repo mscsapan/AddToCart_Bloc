@@ -7,9 +7,8 @@ import 'screens/product_screen.dart';
 void main() {
   runApp(MaterialApp(
     home: BlocProvider(
-      create: (context) => CartProductBloc(),
-      child: const ProductScreen(),
-    ),
+        create: (BuildContext context) => CartProductBloc(),
+        child: const ProductScreen()),
     debugShowCheckedModeBanner: false,
   ));
 }

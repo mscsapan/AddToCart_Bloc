@@ -4,9 +4,8 @@ import '../model/product_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CartProductBloc extends Bloc<CartProductEvent, CartProductState> {
-  List<Product> addToCart = [];
-
   CartProductBloc() : super(const LoadedCartProductState(product: [])) {
+    List<Product> addToCart = [];
     on<CartProductEvent>((event, emit) {
       emit(LoadingCartProductState());
       try {
