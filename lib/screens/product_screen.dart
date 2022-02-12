@@ -38,12 +38,10 @@ class ProductScreen extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => BlocProvider(
-                        create: (BuildContext context) => CartProductBloc(),
-                        child: const AddToCartScreen(),
-                      ),
+                  MaterialPageRoute(
+                    builder: (context) => BlocProvider(
+                      create: (BuildContext context) => CartProductBloc(),
+                      child: const AddToCartScreen(),
                     ),
                   );
                 },

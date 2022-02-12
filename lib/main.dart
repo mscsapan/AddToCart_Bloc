@@ -5,10 +5,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'screens/product_screen.dart';
 
 void main() {
-  runApp(MaterialApp(
-    home: BlocProvider(
-        create: (BuildContext context) => CartProductBloc(),
-        child: const ProductScreen()),
-    debugShowCheckedModeBanner: false,
-  ));
+  runApp(
+    MaterialApp(
+      home: BlocProvider(
+          create: (BuildContext context) => CartProductBloc(),
+          child: const ProductScreen()),
+      debugShowCheckedModeBanner: false,
+    ),
+  );
 }
